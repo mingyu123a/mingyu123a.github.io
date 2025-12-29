@@ -31,6 +31,7 @@
 
   .about,
   .projects,
+  .velog,
   .achievements,
   .contact {
     padding: 80px 0;
@@ -145,6 +146,7 @@
 
   .about,
   .projects,
+  .velog,
   .achievements,
   .contact {
     padding: 5rem 0;
@@ -165,6 +167,10 @@
   .achievement-card {
     width: 100%;
   }
+
+  .velog-title-row {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 720px) {
@@ -181,6 +187,14 @@
     width: 100%;
     justify-content: center;
     text-align: center;
+  }
+
+  .velog-card {
+    padding: 20px;
+  }
+
+  .velog-grid {
+    gap: 14px;
   }
 }
 

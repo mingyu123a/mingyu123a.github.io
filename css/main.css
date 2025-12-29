@@ -445,6 +445,155 @@ h5 {
   text-align: left;
 }
 
+/* Velog */
+.velog {
+  padding: 7rem 0;
+  background: radial-gradient(circle at 18% 18%, rgba(31, 54, 92, 0.08), transparent 26%),
+    radial-gradient(circle at 82% 8%, rgba(242, 139, 59, 0.08), transparent 24%), #fefefe;
+}
+
+.velog-header {
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.velog-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--secondary-accent);
+  font-weight: 700;
+}
+
+.velog-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.velog-title-row .title {
+  margin-bottom: 0;
+}
+
+.velog-lead {
+  font-size: 17px;
+  color: var(--supportive-text-color);
+  line-height: 1.7;
+}
+
+.velog-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.velog-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--white-color);
+  border: 1px solid #dbe2ea;
+  border-radius: 18px;
+  padding: 22px 22px 20px;
+  color: var(--main-text-color);
+  text-decoration: none;
+  box-shadow: 0 22px 50px rgba(14, 32, 60, 0.08);
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.velog-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(31, 54, 92, 0.08), rgba(242, 139, 59, 0.06));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.velog-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.velog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(14, 32, 60, 0.16);
+}
+
+.velog-card:hover::before {
+  opacity: 1;
+}
+
+.velog-card-top {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.velog-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: #eef3fa;
+  color: var(--primary-accent);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.velog-pill.pill-outline {
+  background: transparent;
+  border: 1px solid rgba(31, 54, 92, 0.24);
+  color: var(--secondary-accent);
+}
+
+.velog-card-title {
+  font-size: clamp(1.125rem, 1.089rem + 0.18vw, 1.25rem);
+  margin: 4px 0;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.velog-card-desc {
+  font-size: 15px;
+  color: var(--supportive-text-color);
+  line-height: 1.65;
+}
+
+.velog-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  color: var(--primary-accent);
+  letter-spacing: 0.02em;
+}
+
+.velog-link-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.velog-arrow {
+  font-size: 18px;
+}
+
+.velog-cta {
+  margin: 0 0 0 8px;
+}
+
 /* Achievements */
 .achievements {
   padding: 7rem 0;
