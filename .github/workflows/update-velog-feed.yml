@@ -1,0 +1,32 @@
+name: Update Velog Feed
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"   # daily at 12:00 KST
+    - cron: "0 15 * * *"  # daily at 24:00 KST
+
+permissions:
+  contents: write
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update velog-feed.json
+        run: python scripts/update_velog_feed.py
+
+      - name: Commit and push if changed
+        run: |
+          if git status --porcelain | grep "data/velog-feed.json"; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/velog-feed.json
+            git commit -m "chore: update velog feed"
+            git push
+          else
+            echo "No changes to commit."
+          fi

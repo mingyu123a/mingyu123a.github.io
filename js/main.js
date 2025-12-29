@@ -91,49 +91,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const loadVelogFeed = async () => {
+  const loadSnapshotFeed = async () => {
     if (!velogGrid) return;
     try {
-      const rssUrl = "https://v2.velog.io/rss/@mgh0115";
-      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
-      const res = await fetch(proxyUrl);
-      if (!res.ok) throw new Error("RSS fetch failed");
-      const text = await res.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(text, "application/xml");
-      const items = Array.from(doc.querySelectorAll("item")).slice(0, 6);
-
-      const posts = items
-        .map((item) => {
-          const title = item.querySelector("title")?.textContent || "";
-          const link = item.querySelector("link")?.textContent || "";
-          const rawDesc = item.querySelector("description")?.textContent || "";
-          const desc = truncateText(sanitizeText(rawDesc), 220);
-          return { title, link, desc, tags: [] };
-        })
-        .filter(
-          (p) =>
-            p.title &&
-            p.link &&
-            !excludedTitles.some((bad) => p.title.toLowerCase().includes(bad.toLowerCase()))
-        )
-        .slice(0, 4)
-        .map((p) => {
-          const tags = [];
-          const lower = p.title.toLowerCase();
-          if (lower.includes("oracle")) tags.push("Oracle");
-          if (lower.includes("mysql")) tags.push("MySQL");
-          if (lower.includes("sql")) tags.push("SQL");
-          if (lower.includes("view")) tags.push("VIEW");
-          if (!tags.length) tags.push("Note");
-          return { ...p, tags };
-        });
-
-      if (!posts.length) {
-        renderVelogCards(fallbackVelogPosts);
-        return;
+      const res = await fetch("data/velog-feed.json", { cache: "no-cache" });
+      if (!res.ok) throw new Error("Snapshot fetch failed");
+      const json = await res.json();
+      if (Array.isArray(json) && json.length) {
+        renderVelogCards(json);
       }
-      renderVelogCards(posts);
     } catch (e) {
       renderVelogCards(fallbackVelogPosts);
     }
@@ -189,7 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  loadVelogFeed();
+  // 빠른 최초 표시: 정적 스냅샷을 바로 보여주고, 실패 시 fallback
+  renderVelogCards(fallbackVelogPosts);
+  loadSnapshotFeed();
 
   window.addEventListener("scroll", function () {
     const header = document.querySelector("#header");
