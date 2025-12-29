@@ -44,6 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const excludedTitles = ["layer7", "pwn", "해킹"];
 
+  const sanitizeText = (text) => {
+    if (!text) return "";
+    const doc = new DOMParser().parseFromString(text, "text/html");
+    return doc.body.textContent || "";
+  };
+
+  const truncateText = (text, maxLength = 140) => {
+    if (text.length <= maxLength) return text.trim();
+    return `${text.slice(0, maxLength).trim()}...`;
+  };
+
   const renderVelogCards = (posts) => {
     if (!velogGrid) return;
     velogGrid.innerHTML = "";
@@ -69,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .join("")}
         </div>
         <h3 class="velog-card-title">${post.title}</h3>
-        <p class="velog-card-desc">${post.desc || ""}</p>
+        <p class="velog-card-desc">${truncateText(post.desc || "", 160)}</p>
         <div class="velog-card-footer">
           <span class="velog-link-text">글 보러가기</span>
           <span class="velog-arrow">↗</span>
@@ -96,11 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
         .map((item) => {
           const title = item.querySelector("title")?.textContent || "";
           const link = item.querySelector("link")?.textContent || "";
-          const desc = item.querySelector("description")?.textContent || "";
+          const rawDesc = item.querySelector("description")?.textContent || "";
+          const desc = truncateText(sanitizeText(rawDesc), 220);
           return { title, link, desc, tags: [] };
         })
         .filter(
-          (p) => !excludedTitles.some((bad) => p.title.toLowerCase().includes(bad.toLowerCase()))
+          (p) =>
+            p.title &&
+            p.link &&
+            !excludedTitles.some((bad) => p.title.toLowerCase().includes(bad.toLowerCase()))
         )
         .slice(0, 4)
         .map((p) => {
