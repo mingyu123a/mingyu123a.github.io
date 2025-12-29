@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navBtn = document.querySelector("#nav-btn");
   const navBtnImg = document.querySelector("#nav-btn-img");
   const velogGrid = document.querySelector("#velog-grid");
+  const goToTop = document.querySelector("#goToTop");
 
   const fallbackVelogPosts = [
     {
@@ -82,7 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadVelogFeed = async () => {
     if (!velogGrid) return;
     try {
-      const res = await fetch("https://v2.velog.io/rss/@mgh0115");
+      const rssUrl = "https://v2.velog.io/rss/@mgh0115";
+      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
+      const res = await fetch(proxyUrl);
       if (!res.ok) throw new Error("RSS fetch failed");
       const text = await res.text();
       const parser = new DOMParser();
@@ -180,10 +183,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.scrollY > triggerHeight) {
       header.classList.add("header-sticky");
-      goToTop.classList.add("reveal");
+      if (goToTop) goToTop.classList.add("reveal");
     } else {
       header.classList.remove("header-sticky");
-      goToTop.classList.remove("reveal");
+      if (goToTop) goToTop.classList.remove("reveal");
     }
   });
 
