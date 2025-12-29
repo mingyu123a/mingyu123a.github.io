@@ -31,6 +31,7 @@
 
   .about,
   .projects,
+  .achievements,
   .contact {
     padding: 80px 0;
   }
@@ -144,6 +145,7 @@
 
   .about,
   .projects,
+  .achievements,
   .contact {
     padding: 5rem 0;
   }
@@ -151,11 +153,34 @@
   .title {
     margin-bottom: 30px;
   }
+
+  .achievements-header {
+    margin-bottom: 22px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-card {
+    width: 100%;
+  }
 }
 
 @media (max-width: 720px) {
   .project-box {
     max-width: 100%;
+  }
+
+  .achievement-card {
+    width: 100%;
+    padding: 26px;
+  }
+
+  .achievements-tab {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 }
 

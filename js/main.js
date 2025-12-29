@@ -22,6 +22,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const achievementCards = document.querySelectorAll(".achievement-card");
+  const achievementTabs = document.querySelectorAll(".achievements-tab");
+
+  if (achievementCards.length && achievementTabs.length) {
+    const setActiveTab = (panel) => {
+      achievementTabs.forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.target === panel);
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          setActiveTab(visible.target.dataset.panel);
+        }
+      },
+      { threshold: [0.3, 0.6], rootMargin: "-10% 0px -10% 0px" }
+    );
+
+    achievementCards.forEach((card) => observer.observe(card));
+
+    achievementTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetPanel = tab.dataset.target;
+        const destination = Array.from(achievementCards).find(
+          (card) => card.dataset.panel === targetPanel
+        );
+        if (destination) {
+          destination.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+          setActiveTab(targetPanel);
+        }
+      });
+    });
+  }
+
   window.addEventListener("scroll", function () {
     const header = document.querySelector("#header");
     const hero = document.querySelector("#home");
