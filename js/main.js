@@ -177,6 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let navLinks = document.querySelectorAll("header nav a");
 
   window.onscroll = () => {
+    const doc = document.documentElement;
+    const atBottom =
+      Math.ceil(window.scrollY + window.innerHeight) >= doc.scrollHeight - 5;
+
     sections.forEach((sec) => {
       let top = window.scrollY;
       let offset = sec.offsetTop - 170;
@@ -192,5 +196,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     });
+
+    // Ensure last link highlights when reaching page bottom
+    if (atBottom) {
+      navLinks.forEach((links) => links.classList.remove("active"));
+      const contactLink = document.querySelector('header nav a[href*="contact"]');
+      if (contactLink) contactLink.classList.add("active");
+    }
   };
 });
