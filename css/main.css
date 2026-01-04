@@ -632,7 +632,8 @@ h5 {
   flex-wrap: wrap;
 }
 
-.achievements-tab {
+.achievements-tab,
+.achievements-pill {
   border: 1px solid var(--primary-accent);
   background: var(--white-color);
   color: var(--primary-accent);
@@ -645,7 +646,8 @@ h5 {
   box-shadow: 0 10px 20px rgba(16, 44, 84, 0.1);
 }
 
-.achievements-tab.active {
+.achievements-tab.active,
+.achievements-pill.active {
   background: var(--primary-accent);
   color: var(--white-color);
   transform: translateY(-1px);
@@ -759,6 +761,47 @@ h5 {
   color: rgba(219, 230, 239, 0.76);
   margin-top: 6px;
   text-align: center;
+}
+
+.publication-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.publication-item {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: left;
+}
+
+.light-card .publication-item {
+  background: #f6f9fc;
+  border-color: #e0e7f0;
+}
+
+.publication-org {
+  font-weight: 700;
+  letter-spacing: -0.12px;
+}
+
+.publication-title {
+  margin-top: 6px;
+  line-height: 1.55;
+}
+
+.publication-subtitle {
+  margin-top: 4px;
+  color: rgba(219, 230, 239, 0.82);
+  line-height: 1.5;
 }
 
 .table-title {

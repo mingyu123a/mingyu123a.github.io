@@ -183,7 +183,8 @@
     padding: 26px;
   }
 
-  .achievements-tab {
+  .achievements-tab,
+  .achievements-pill {
     width: 100%;
     justify-content: center;
     text-align: center;
