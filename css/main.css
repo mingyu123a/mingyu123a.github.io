@@ -432,6 +432,12 @@ h5 {
   text-align: center;
 }
 
+.projects-note {
+  margin: -26px 0 30px;
+  color: var(--gray-text-color);
+  font-size: 15px;
+}
+
 .projects-row {
   display: flex;
   flex-wrap: wrap;
