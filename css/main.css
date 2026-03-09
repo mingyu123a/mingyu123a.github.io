@@ -301,39 +301,87 @@ h5 {
   margin-bottom: 10px;
 }
 
-.skill {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin-bottom: 30px;
+.about-skills {
+  padding: 32px 28px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #ffffff 0%, #eef3f8 100%);
+  border: 1px solid rgba(31, 54, 92, 0.08);
+  box-shadow: 0 20px 45px rgba(31, 54, 92, 0.08);
 }
 
-.skill-title,
-.skill-percent {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 400;
-  /* text-transform: uppercase; */
-  letter-spacing: 0px;
+.tech-stack-header {
+  margin-bottom: 24px;
 }
 
-.skill-percent {
-  float: right;
-}
-.skill-bar__progress {
-  background-color: var(--gray-color);
-  border-radius: 5px;
-  height: 4px;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+.tech-stack-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background-color: rgba(242, 139, 59, 0.14);
+  color: var(--secondary-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.skill-bar__fill {
-  background-color: var(--secondary-accent);
-  height: 4px;
-  width: 0; /* Initial width is 0 */
-  transition: width 1.5s ease-in-out; /* Smooth transition for the fill */
+.tech-stack-title {
+  margin-bottom: 10px;
+  font-size: clamp(1.75rem, 1.536rem + 1.07vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.tech-stack-text {
+  color: var(--gray-text-color);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.tech-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.tech-stack-card {
+  min-height: 150px;
+  padding: 18px;
+  border-radius: 22px;
+  background-color: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(31, 54, 92, 0.08);
+}
+
+.tech-stack-label {
+  margin-bottom: 14px;
+  color: var(--primary-accent);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tech-stack-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background-color: rgba(242, 139, 59, 0.12);
+  border: 1px solid rgba(242, 139, 59, 0.24);
+  color: var(--primary-accent);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .about-download-btn {
