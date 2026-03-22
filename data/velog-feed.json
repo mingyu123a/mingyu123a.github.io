@@ -1,5 +1,21 @@
 [
   {
+    "title": "리소스 삭제",
+    "link": "https://velog.io/@mgh0115/%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%82%AD%EC%A0%9C",
+    "tags": [
+      "Note"
+    ],
+    "desc": "\"리소스 삭제도 실력이다\" 라는 말을 듣고.. 어차피 책 내용 한번에 다 끝내지도 못하고 꾸준히 할건데 지웠다가 구축했다가 하다보면 실력도 향상될 것 같아서 삭제 방법을 정리해보자 그리고 여러 이유들이 있는데 비용이 발생한다 리소스 관리 효율성 문제가 생긴다 (대충대충 만들다가 삭제도 안하고 방치해서 요금나오는 일이 있다) 서비스들의 관계성을 알아야 무엇을 먼저 삭제해야하는지 알 수 있다 (..."
+  },
+  {
+    "title": "오토 스케일링",
+    "link": "https://velog.io/@mgh0115/%EC%98%A4%ED%86%A0-%EC%8A%A4%EC%BC%80%EC%9D%BC%EB%A7%81",
+    "tags": [
+      "Note"
+    ],
+    "desc": "오토 스케일링 오토 스케일링은 트래픽에 맞춰 인스턴스를 자동으로 생성하고 삭제하는 역할을 한다 기준 정하기 인스턴스의 평균 CPU 사용률이나 네트워크 입출력에 따라 기준을 정할 수 있다 지금은 CPU 사용량을 기준으로 실습해보자 AMI 생성 오토 스케일링을 사용하려면 시작 템플릿(Launch Template)이 필요하다. 그리고 시작 템플릿을 만들려면 AMI(Amazon Machine Ima..."
+  },
+  {
     "title": "AWS 인프라 구축(EC2와 로드 밸런서를 활용한 트래픽 분산 아키텍처 구성)",
     "link": "https://velog.io/@mgh0115/AWS-%EC%9D%B8%ED%94%84%EB%9D%BC-%EA%B5%AC%EC%B6%95EC2%EC%99%80-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%8A%B8%EB%9E%98%ED%94%BD-%EB%B6%84%EC%82%B0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EA%B5%AC%EC%84%B1",
     "tags": [
@@ -14,23 +30,5 @@
       "SQL"
     ],
     "desc": "데이터 모델은 \"꼭 필요한 요소\"만 다룬 것 -> 모델 데이터 모델 -> 데이터를 다룰 때 모델로 다루겠다 모델링 구축하고자 하는 정보시스템에 맞게 현실세계의 데이터를 약속된 표기법으로 표현 약속된 표기법으로 하는 이유 -> 커뮤니케이션을 하면서 구축을 하기 때문 업무의 흐름을 가시화(눈에 보이게) 명세화한다 -> 이게 ERD 업무 프로세스의 데이터를 분석하여 추상화(Abstraction)..."
-  },
-  {
-    "title": "[Oracle] 프로그래머스 SQL 중고거래 댓글 조회하기",
-    "link": "https://velog.io/@mgh0115/Oracle-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-SQL-%EC%A4%91%EA%B3%A0%EA%B1%B0%EB%9E%98-%EB%8C%93%EA%B8%80-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0SELECT",
-    "tags": [
-      "Oracle",
-      "SQL"
-    ],
-    "desc": "oracle에 적응하던중 문제를 풀다가 안푼 문제가 하나 있어서(MySQL로도 안풀었음, 예전에 풀다가 join 배우기 전이라 넘어간듯) 두 테이블을 사용해야한다 -- 코드를 입력하세요 SELECT b.title, b.board_id, r.reply_id, b.writer_id, r.contents, TO_CHAR(r.created_date, 'YYYY-MM-DD') FROM USED_GOO..."
-  },
-  {
-    "title": "[MySQL]학사 시스템 만들기 프로젝트",
-    "link": "https://velog.io/@mgh0115/MySQL%ED%95%99%EC%82%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
-    "tags": [
-      "MySQL",
-      "SQL"
-    ],
-    "desc": "요구사항 분석 이제 책 한권으로 개념을 했으니 직접 한번 만들어보자 구조 설계부터 하면 학생, 과목, 선생님, 수강 총 4개 테이블을 생각하고 학생: ID(PK), 이름, 학년, 수강(FK로 해야할듯) 과목: ID(PK), 과목명, 시수(한 과목의 총 수업 시간 수), 선생님: ID(PK), 이름, 담당과목 수강: 학생ID(PK), 과목ID 정도로 하면 되겠다 CREATE DATABASE b..."
   }
 ]
