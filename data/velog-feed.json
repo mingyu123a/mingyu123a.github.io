@@ -1,5 +1,13 @@
 [
   {
+    "title": "Router 53 개념과 ACM 인증(미완)",
+    "link": "https://velog.io/@mgh0115/Router-53-%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%97%B0%EA%B2%B0%EA%B3%BC-ACM-%EC%9D%B8%EC%A6%9D",
+    "tags": [
+      "Note"
+    ],
+    "desc": "Router 53 웹사이트에 접속할때 www.example.com을 입력하지만 DNS서버가 어떤 ip로 연결해준다 Router 53은 AWS에서 제공하는 DNS서비스이다 Router 53을 사용하지 않고 자체적으로 DNS 서버를 구축하려면 직접 네임서버를 설정하고 각종 요청을 처리하는 시스템을 만들어야한다 Router 53의 기능들은 DNS 외에도 다음과 같은 고급 기능을 제공한다 도메인 등..."
+  },
+  {
     "title": "RDS",
     "link": "https://velog.io/@mgh0115/RDS",
     "tags": [
@@ -22,13 +30,5 @@
       "Note"
     ],
     "desc": "오토 스케일링 오토 스케일링은 트래픽에 맞춰 인스턴스를 자동으로 생성하고 삭제하는 역할을 한다 기준 정하기 인스턴스의 평균 CPU 사용률이나 네트워크 입출력에 따라 기준을 정할 수 있다 지금은 CPU 사용량을 기준으로 실습해보자 AMI 생성 오토 스케일링을 사용하려면 시작 템플릿(Launch Template)이 필요하다. 그리고 시작 템플릿을 만들려면 AMI(Amazon Machine Ima..."
-  },
-  {
-    "title": "AWS 인프라 구축(EC2와 로드 밸런서를 활용한 트래픽 분산 아키텍처 구성)",
-    "link": "https://velog.io/@mgh0115/AWS-%EC%9D%B8%ED%94%84%EB%9D%BC-%EA%B5%AC%EC%B6%95EC2%EC%99%80-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%8A%B8%EB%9E%98%ED%94%BD-%EB%B6%84%EC%82%B0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EA%B5%AC%EC%84%B1",
-    "tags": [
-      "Note"
-    ],
-    "desc": "요 책으로 공부할 예정이다 인스턴스 생성까지는 생략했음 로드 밸런서 서버를 여러개 만들어서 트래픽을 분산할 수 있게 해야 한다. 이러한 역할을 해주는게 -> 로드 밸런서 AWS에서 이러한 로드 밸런서의 역할을 해주는 서비스의 정식 명칭은 ELB(Elastic Load Balancing)이다 AWS에서 제공하는 로드 밸런서의 종류는 여러가지가 있는데 지금은 HTTP와 HTTPS 트래픽을 분산..."
   }
 ]
